@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -173,7 +174,7 @@ fun MiniPlayer(playerVm: PlayerViewModel, onOpen: () -> Unit) {
         }
     }
     Surface(tonalElevation = 3.dp, modifier = Modifier.fillMaxWidth()) {
-        Column {
+        Column(modifier = Modifier.navigationBarsPadding()) {
             val progress = if (playerVm.duration > 0) position.toFloat() / playerVm.duration else 0f
             LinearProgressIndicator(
                 progress = { progress.coerceIn(0f, 1f) },
